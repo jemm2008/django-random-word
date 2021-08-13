@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random WORD</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <h1 class="my-5 text-center">PALABRA ALEATORIA ( Intento No. {{ count }} )</h1>
+            <h1 class="col-md-12 col-lg-8 mx-5 pt-1 pb-2 card text-center bigtxt">{{ rand_word }}</h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-xs-6 col-md-3  me-5">
+                <form action='accion/' method='post'>
+                    {% csrf_token %}
+                    <input type="hidden" name="presionado" value="0">
+                    <button type="submit" class="btn btn-success m-5">Generar</button>
+                </form>
+            </div>
+            
+            <div class="col-xs-6 col-md-3 me-5">
+                <form action='accion/' method='post'>
+                    {% csrf_token %}
+                    <input type="hidden" name="presionado" value="1">
+                    <button type="submit" class="btn btn-danger m-5">Reset</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+</body>
+</html>
